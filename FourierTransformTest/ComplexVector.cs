@@ -70,10 +70,8 @@ namespace FourierTransformTest
         {
             var clone = (ComplexVector)this.MemberwiseClone();
             clone.SetSize(this.Count);
-            for (var i = 0; i < this.Count; i++)
-            {
-                clone[i] = (Complex)this[i].Clone();
-            }
+            Enumerable.Range(0, this.Count).ToList().ForEach
+                (i => clone[i] = (Complex)this[i].Clone());
             return clone;
         }
         /// <summary>
@@ -94,10 +92,8 @@ namespace FourierTransformTest
         /// <param name="value">設定値</param>
         public void SetAll(Complex value)
         {
-            for (var i = 0; i < this.Count; i++)
-            {
-                this[i] = (Complex)value.Clone();
-            }
+            Enumerable.Range(0, this.Count).ToList().ForEach
+                (i => this[i] = (Complex)value.Clone());
         }
         /// <summary>
         /// 生データを実部に設定する。既存データは削除します。虚部は全てゼロに設定されます。
@@ -107,11 +103,8 @@ namespace FourierTransformTest
         public void SetRealData(double[] data)
         {
             SetSize(data.Length);
-
-            for (int i = 0; i < this.Count; i++)
-            {
-                this.values[i] = new Complex(data[i], 0);
-            }
+            Enumerable.Range(0, data.Length).ToList().ForEach
+                (i => this.values[i] = new Complex(data[i], 0));
         }
     }
 }

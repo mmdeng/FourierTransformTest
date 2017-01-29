@@ -51,22 +51,6 @@ namespace FourierTransformTest
             return this.MemberwiseClone();
         }
         /// <summary>
-        /// 共役の取得(虚部のみ反転)
-        /// </summary>
-        /// <returns>共役</returns>
-        public Complex GetConjugate()
-        {
-            return new Complex(this.Re, -this.Im);
-        }
-        /// <summary>
-        /// 共役(虚部のみ反転)
-        /// </summary>
-        /// <returns>共役</returns>
-        public void Conjugate()
-        {
-            this.Im *= -1;
-        }
-        /// <summary>
         /// 本ベクトルの距離を取得
         /// </summary>
         /// <returns>距離</returns>
@@ -91,21 +75,6 @@ namespace FourierTransformTest
             {
                 return this.Re.ToString("F") + ", -i" + (-this.Im).ToString("F");
             }
-        }
-        /// <summary>
-        /// 複素数同士の乗算。演算子「*」とは違う
-        /// </summary>
-        /// <remarks></remarks>
-        /// <param name="complex">乗算する複素数</param>
-        /// <returns>結果複素数</returns>
-        public Complex MultiplyComplex(Complex complex)
-        {
-            var result = new Complex();
-            if (complex == null) return result;
-
-            result.Re = this.Re * complex.Re - this.Im * complex.Im;
-            result.Im = this.Re * complex.Im + this.Im * complex.Re;
-            return result;
         }
         /// <summary>
         /// 和
