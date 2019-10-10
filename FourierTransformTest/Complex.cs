@@ -11,7 +11,7 @@ namespace FourierTransformTest
     public class Complex : ICloneable
     {
         /// <summary>
-        /// 実部
+        /// 実部h
         /// </summary>
         public double Re;
         /// <summary>
